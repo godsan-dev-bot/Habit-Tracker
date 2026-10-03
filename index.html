@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#030a06">
+<meta name="author" content="Godsan">
+<title>VORTEX BITS // Discipline OS — by Godsan</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=Rajdhani:wght@500;600&family=Space+Grotesk:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg" aria-hidden="true"><div class="vortex"><i></i><i></i><i></i></div><div class="grid3d"></div><canvas id="fx"></canvas><div class="fog"></div><div class="scan"></div><div class="vig"></div></div>
+<div class="cur-glow" aria-hidden="true"></div><div class="cur-ring" aria-hidden="true"></div><div class="cur-dot" aria-hidden="true"></div>
+
+<div id="boot" class="boot"><div><b>VORTEX BITS</b><p class="dev">BY GODSAN</p><p id="bootTxt">INITIALIZING VORTEX CORE…</p><div class="bar"><i id="bootBar"></i></div></div></div>
+<div class="sp" aria-hidden="true"><i id="spBar"></i></div>
+<nav class="nav" aria-label="Main">
+  <span class="logo"><i class="spin">⌬</i> VORTEX</span>
+  <a href="#dashboard" class="on"><b>◈</b><span>Dashboard</span></a>
+  <a href="#habits"><b>◇</b><span>Habits</span></a>
+  <a href="#analytics"><b>⟡</b><span>Analytics</span></a>
+  <a href="#achievements"><b>⌬</b><span>Achievements</span></a>
+  <a href="#profile"><b>▣</b><span>Profile</span></a>
+  <a href="#settings"><b>⚙</b><span>Settings</span></a>
+</nav>
+
+<main class="wrap">
+<section id="dashboard" class="hero"><div class="orbit" aria-hidden="true"></div>
+  <div class="status"><span><i class="dot-live"></i> SYSTEM ONLINE</span><span>SYNC ACTIVE</span><span>DISCIPLINE MODE</span><span id="clock" class="clock">00:00:00</span></div>
+  <h1 data-text="VORTEX BITS">VORTEX BITS</h1>
+  <p class="sub">Build your discipline. Track your progress. Become your next version.</p>
+  <p class="dev">◈ DESIGNED & DEVELOPED BY <b>GODSAN</b></p>
+  <p class="typed-line" aria-live="off"><span id="typed"></span><i class="caret"></i></p>
+  <p class="quote" id="quote"></p>
+  <div class="ticker" aria-hidden="true"><div>⌬ VORTEX CORE ONLINE &nbsp;◈ STREAK ENGINE ARMED &nbsp;⟡ XP CORE STABLE &nbsp;△ DISCIPLINE MODE ACTIVE &nbsp;⌁ SYNC 100% &nbsp;▣ PROGRESS MATRIX LOCKED &nbsp;◈ BY GODSAN &nbsp;</div></div>
+  <span class="hud tl">X:035.2 Y:118.7</span><span class="hud br">VORTEX CORE // v2.1</span>
+</section>
+
+<section class="stats rv" aria-label="Statistics">
+  <div class="panel stat"><span class="tag">⌬ TOTAL HABITS</span><b id="sTotal">0</b></div>
+  <div class="panel stat"><span class="tag">✓ COMPLETED TODAY</span><b id="sToday">0</b><div class="bar"><i id="sTodayBar"></i></div></div>
+  <div class="panel stat"><span class="tag">⌁ CURRENT STREAK</span><b id="sCur">0</b></div>
+  <div class="panel stat"><span class="tag">△ LONGEST STREAK</span><b id="sLong">0</b></div>
+  <div class="panel stat"><span class="tag">◇ COMPLETION RATE</span><b id="sRate">0%</b><div class="bar"><i id="sRateBar"></i></div></div>
+  <div class="panel stat"><span class="tag">⟡ XP / LEVEL</span><b id="sLvl">LV 1</b><div class="bar"><i id="sLvlBar"></i></div></div>
+</section>
+
+<section class="trio">
+  <div class="panel rv"><span class="tag">◈ DAILY MISSION</span><div id="mission"></div></div>
+  <div class="panel rv"><span class="tag">⌁ STREAK ENGINE</span>
+    <div class="ringbox"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" class="rtrack"/><circle id="ring" cx="60" cy="60" r="52" class="rfill"/></svg><div><b id="rNum">0</b><small>DAY STREAK</small></div></div>
+    <p class="fire" id="fire"></p>
+    <div class="mini"><span>CURRENT <b id="rCur">0</b></span><span>LONGEST <b id="rLong">0</b></span><span>BEST WEEK <b id="rWeek">0</b></span></div>
+    <p class="note" id="note"></p></div>
+  <div class="panel rv"><span class="tag">⟡ XP CORE</span><h2 id="xLvl">LEVEL 01</h2><div class="bar big"><i id="xBar"></i></div><p class="note" id="xTxt"></p></div>
+</section>
+
+<section id="habits" class="rv">
+  <div class="head"><div><span class="tag">◇ DAILY PROTOCOL</span><h2>Habits</h2></div><button class="btn prime" id="newBtn">+ NEW HABIT</button></div>
+  <div class="tools"><input id="search" type="search" placeholder="Search habits" aria-label="Search habits"><select id="catFilter" aria-label="Filter by category"></select></div>
+  <div class="grid" id="grid"></div>
+  <div class="panel wk-panel"><div class="head"><span class="tag">▣ PROGRESS MATRIX</span><div class="wnav"><button class="btn sm" id="wPrev" aria-label="Previous week">←</button><span id="wLabel"></span><button class="btn sm" id="wNext" aria-label="Next week">→</button></div></div><div id="week" class="week"></div></div>
+</section>
+
+<section id="analytics" class="rv">
+  <div class="head"><div><span class="tag">⟡ ANALYTICS CORE</span><h2>Analytics</h2></div>
+  <div class="seg" role="group" aria-label="Date range"><button aria-pressed="false" data-r="7">7D</button><button class="on" aria-pressed="true" data-r="30">30D</button><button aria-pressed="false" data-r="90">90D</button><button aria-pressed="false" data-r="365">1Y</button></div></div>
+  <div class="kpis" id="kpis"></div>
+  <div class="charts">
+    <div class="panel wide"><span class="tag">COMPLETION TREND <span class="lg">solid = this period · dashed = previous</span></span><canvas id="cTrend"></canvas></div>
+    <div class="panel"><span class="tag">DAY-OF-WEEK PERFORMANCE</span><canvas id="cDow"></canvas></div>
+    <div class="panel"><span class="tag">CATEGORY BREAKDOWN</span><canvas id="cCat"></canvas></div>
+    <div class="panel"><span class="tag">HABIT CONSISTENCY</span><canvas id="cCons"></canvas></div>
+    <div class="panel"><span class="tag">STREAK HISTORY</span><canvas id="cStreak"></canvas></div>
+  </div>
+  <div class="panel"><span class="tag">◈ INSIGHTS</span><ul class="ins" id="ins"></ul></div>
+  <div class="panel"><span class="tag">HABIT BREAKDOWN</span><div id="tbl" class="tbl"></div></div>
+  <div class="panel"><span class="tag">ACTIVITY HEATMAP</span><div class="heatwrap"><div id="heat" class="heat"></div></div><div class="legend">LESS <i class="l0"></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i> MORE</div><div id="tip" class="tip" role="status"></div></div>
+</section>
+
+<section id="achievements" class="rv"><span class="tag">⌬ UNLOCK LOG</span><h2>Achievements</h2><div class="ach" id="ach"></div></section>
+
+<section id="profile" class="rv"><span class="tag">▣ OPERATOR</span><h2>Profile</h2>
+  <div class="panel prof"><div class="avatar" id="pAv">◈</div>
+    <div class="pform"><label>Display name<input id="pName" maxlength="16"></label><label>Avatar<select id="pAvSel"></select></label></div>
+    <div class="mini"><span>LEVEL <b id="pLvl">1</b></span><span>XP <b id="pXp">0</b></span><span>HABITS <b id="pHab">0</b></span><span>ACTIVE DAYS <b id="pDays">0</b></span></div></div></section>
+
+<section id="settings" class="rv"><span class="tag">⚙ SYSTEM</span><h2>Settings</h2>
+  <div class="panel set"><label class="chk"><input type="checkbox" id="fxOn"> Background effects (particles)</label>
+    <div class="row"><button class="btn" id="export">↗ EXPORT DATA</button><button class="btn danger" id="wipe">× RESET ALL DATA</button></div><p class="dev" style="margin-top:16px">◈ VORTEX BITS v2.1 — DESIGNED & DEVELOPED BY <b>GODSAN</b></p></div></section>
+<footer class="foot">VORTEX BITS // DISCIPLINE OPERATING SYSTEM // BY GODSAN</footer>
+</main>
+
+<div class="modal" id="modal" aria-hidden="true"><form class="panel mbox" id="form" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <h2 id="mTitle">New habit</h2>
+  <label>Name<input name="name" required maxlength="30"></label>
+  <label>Description<input name="desc" maxlength="70"></label>
+  <div class="two"><label>Category<select name="cat"></select></label><label>Frequency<select name="freq"><option value="daily">Every day</option><option value="weekdays">Weekdays</option><option value="weekends">Weekends</option></select></label></div>
+  <fieldset><legend>Icon</legend><div class="picks" id="icons"></div></fieldset>
+  <fieldset><legend>Color</legend><div class="picks" id="colors"></div></fieldset>
+  <div class="row"><button type="button" class="btn" id="cancel">Cancel</button><button class="btn prime" type="submit">Save habit</button></div></form></div>
+<div id="levelup" class="levelup" aria-live="assertive"></div>
+<div id="toasts" class="toasts" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
